@@ -4,7 +4,7 @@ interface BadgeProps {
 
 export default function Badge({ children }: BadgeProps) {
   return (
-    <span className="rounded-full bg-slate-800 px-3 py-1 text-xs font-medium text-slate-300 ring-1 ring-slate-700">
+    <span className="rounded border border-line bg-surface-2 px-2 py-1 font-mono text-xs text-blue">
       {children}
     </span>
   );

@@ -12,8 +12,8 @@ export interface NavLink {
 }
 
 export const navLinks: NavLink[] = [
-  { label: "Home", to: "/" },
-  { label: "Projects", to: "/projects" },
-  { label: "Resume", to: "/resume" },
-  { label: "Contact", to: "/contact" },
+  { label: "home.tsx", to: "/" },
+  { label: "projects.tsx", to: "/projects" },
+  { label: "resume.tsx", to: "/resume" },
+  { label: "contact.tsx", to: "/contact" },
 ];

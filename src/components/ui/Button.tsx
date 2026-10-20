@@ -5,9 +5,9 @@ type ButtonVariant = "primary" | "secondary";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400",
+    "inline-flex items-center gap-2 rounded border border-accent/40 bg-accent/10 px-5 py-2.5 font-mono text-sm font-semibold text-accent hover:border-accent hover:bg-accent/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
   secondary:
-    "inline-flex items-center gap-2 rounded-full border border-slate-700 px-5 py-2.5 text-sm font-semibold text-slate-200 hover:border-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400",
+    "inline-flex items-center gap-2 rounded border border-line px-5 py-2.5 font-mono text-sm font-semibold text-body hover:border-line-strong hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
 };
 
 interface InternalButtonProps {

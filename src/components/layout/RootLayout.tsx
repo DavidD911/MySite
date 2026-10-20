@@ -5,7 +5,7 @@ import NavBar from "./NavBar";
 
 export default function RootLayout() {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-950">
+    <div className="flex min-h-screen flex-col bg-canvas">
       <NavBar />
       <main className="flex-1">
         <Outlet />

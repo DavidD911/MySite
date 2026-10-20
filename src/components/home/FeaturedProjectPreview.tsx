@@ -1,8 +1,8 @@
 import { projects } from "@/data/projects";
 import Container from "@/components/layout/Container";
+import Button from "@/components/ui/Button";
 import FeaturedProjectCard from "@/components/ui/FeaturedProjectCard";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Button from "@/components/ui/Button";
 
 export default function FeaturedProjectPreview() {
   const featuredProject = projects.find((project) => project.featuredOnHome);
@@ -12,15 +12,15 @@ export default function FeaturedProjectPreview() {
   }
 
   return (
-    <section className="bg-slate-900/40 py-20">
+    <section className="bg-surface/40 py-20">
       <Container>
-        <SectionHeading eyebrow="Featured Work" title="A project I&rsquo;m proud of" />
+        <SectionHeading eyebrow="featured-work" title="A project I'm proud of" />
         <div className="mt-10 max-w-xl">
           <FeaturedProjectCard project={featuredProject} />
         </div>
         <div className="mt-8">
           <Button to="/projects" variant="secondary">
-            View all projects
+            ls ./projects --all
           </Button>
         </div>
       </Container>

@@ -1,4 +1,4 @@
-import { Linkedin, Mail } from "lucide-react";
+import { GitBranch, Linkedin, Mail } from "lucide-react";
 
 import { site } from "@/data/site";
 import Container from "./Container";
@@ -7,25 +7,31 @@ const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-800">
-      <Container className="flex flex-col items-center gap-4 py-8 text-sm text-slate-400 sm:flex-row sm:justify-between">
-        <p>© {currentYear} {site.displayName}</p>
-        <div className="flex items-center gap-5">
-          <a
-            href={`mailto:${site.email}`}
-            className="flex items-center gap-1.5 hover:text-slate-200"
-          >
-            <Mail size={16} aria-hidden="true" />
+    <footer className="border-t border-line bg-surface-2">
+      <Container className="flex flex-wrap items-center justify-between gap-3 py-3 font-mono text-xs text-muted">
+        <div className="flex flex-wrap items-center gap-4">
+          <span className="flex items-center gap-1.5">
+            <GitBranch size={12} aria-hidden="true" />
+            main
+          </span>
+          <span>UTF-8</span>
+          <span>
+            © {currentYear} {site.displayName}
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <a href={`mailto:${site.email}`} className="flex items-center gap-1.5 hover:text-ink">
+            <Mail size={12} aria-hidden="true" />
             {site.email}
           </a>
           <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn profile"
-            className="hover:text-slate-200"
+            className="flex items-center gap-1.5 hover:text-ink"
           >
-            <Linkedin size={18} aria-hidden="true" />
+            <Linkedin size={12} aria-hidden="true" />
+            linkedin
           </a>
         </div>
       </Container>

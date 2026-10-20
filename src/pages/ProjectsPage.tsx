@@ -13,42 +13,58 @@ export default function ProjectsPage() {
   const featuredProjects = projects.filter((project) => project.featured);
   const moreProjects = projects.filter((project) => !project.featured);
 
-  const filteredMoreProjects = useMemo(
-    () =>
-      typeFilter === "All"
-        ? moreProjects
-        : moreProjects.filter((project) => project.type === typeFilter),
-    [moreProjects, typeFilter],
+  const isFiltering = typeFilter !== "All";
+
+  const filteredProjects = useMemo(
+    () => (isFiltering ? projects.filter((project) => project.type === typeFilter) : []),
+    [isFiltering, typeFilter],
   );
 
   return (
     <Container className="py-16 sm:py-20">
       <SectionHeading
-        eyebrow="Work"
+        eyebrow="work"
         title="Projects"
         description="A selection of apps, portals, and websites I've designed, built, and managed."
       />
 
-      <div className="mt-12">
-        <h2 className="text-2xl">Featured Projects</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <FeaturedProjectCard key={project.id} project={project} />
-          ))}
-        </div>
+      <div className="mt-8">
+        <ProjectTypeFilter value={typeFilter} onChange={setTypeFilter} />
       </div>
 
-      <div className="mt-16">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h2 className="text-2xl">More Projects</h2>
-          <ProjectTypeFilter value={typeFilter} onChange={setTypeFilter} />
+      {isFiltering ? (
+        <div className="mt-8">
+          {filteredProjects.length > 0 ? (
+            <div className="grid gap-6 sm:grid-cols-2">
+              {filteredProjects.map((project) => (
+                <FeaturedProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          ) : (
+            <p className="font-mono text-sm text-muted">{"// no projects match this filter"}</p>
+          )}
         </div>
-        <div className="mt-6">
-          {filteredMoreProjects.map((project) => (
-            <CompactProjectRow key={project.id} project={project} />
-          ))}
-        </div>
-      </div>
+      ) : (
+        <>
+          <div className="mt-12">
+            <h2 className="text-2xl">Featured Projects</h2>
+            <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              {featuredProjects.map((project) => (
+                <FeaturedProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="text-2xl">More Projects</h2>
+            <div className="mt-6">
+              {moreProjects.map((project) => (
+                <CompactProjectRow key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
     </Container>
   );
 }

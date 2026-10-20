@@ -22,11 +22,11 @@ export default function ProjectTypeFilter({ value, onChange }: ProjectTypeFilter
             aria-pressed={isActive}
             className={
               isActive
-                ? "rounded-full bg-indigo-500 px-4 py-1.5 text-sm font-semibold text-white"
-                : "rounded-full border border-slate-700 px-4 py-1.5 text-sm font-semibold text-slate-300 hover:border-slate-500"
+                ? "rounded border border-accent/40 bg-accent/10 px-3 py-1.5 font-mono text-sm text-accent"
+                : "rounded border border-line px-3 py-1.5 font-mono text-sm text-muted hover:border-line-strong hover:text-body"
             }
           >
-            {filterValue}
+            {`[${filterValue.toLowerCase()}]`}
           </button>
         );
       })}
