@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 
 import { projects } from "@/data/projects";
 import Container from "@/components/layout/Container";
+import BackLink from "@/components/ui/BackLink";
 import CompactProjectRow from "@/components/ui/CompactProjectRow";
 import FeaturedProjectCard from "@/components/ui/FeaturedProjectCard";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -22,11 +23,14 @@ export default function ProjectsPage() {
 
   return (
     <Container className="py-16 sm:py-20">
-      <SectionHeading
-        eyebrow="work"
-        title="Projects"
-        description="A selection of apps, portals, and websites I've designed, built, and managed."
-      />
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <SectionHeading
+          eyebrow="work"
+          title="Projects"
+          description="A selection of apps, portals, and websites I've designed, built, and managed."
+        />
+        <BackLink />
+      </div>
 
       <div className="mt-8">
         <ProjectTypeFilter value={typeFilter} onChange={setTypeFilter} />

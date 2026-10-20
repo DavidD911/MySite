@@ -2,12 +2,17 @@ import { Linkedin, Mail } from "lucide-react";
 
 import { site } from "@/data/site";
 import Container from "@/components/layout/Container";
+import BackLink from "@/components/ui/BackLink";
 import Cursor from "@/components/ui/Cursor";
 import TerminalWindow from "@/components/ui/TerminalWindow";
 
 export default function ContactPage() {
   return (
     <Container className="py-16 sm:py-24">
+      <div className="mb-8 flex justify-end">
+        <BackLink />
+      </div>
+
       <div className="mx-auto max-w-xl text-center">
         <TerminalWindow title="contact.sh">
           <div className="space-y-1 font-mono text-sm sm:text-base">
