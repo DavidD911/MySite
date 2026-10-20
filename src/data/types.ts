@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   tech: string[];
   url?: string;
+  image?: string;
   linkNote?: string;
   company?: string;
   durationNote?: string;

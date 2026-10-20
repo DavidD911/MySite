@@ -15,20 +15,31 @@ export default function CompactProjectRow({ project }: CompactProjectRowProps) {
 
   return (
     <div className="flex flex-col gap-4 border-b border-line py-5 sm:flex-row sm:items-center sm:justify-between">
-      <div>
-        <div className="flex flex-wrap items-center gap-2">
-          <h3 className="font-mono text-base font-semibold text-ink">
-            <span className="text-muted">{"> "}</span>
-            {project.name}
-          </h3>
-          <Badge>{project.type}</Badge>
-        </div>
-        <p className="mt-1 text-sm text-body/80">{project.description}</p>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {visibleTech.map((tech) => (
-            <Badge key={tech}>{tech}</Badge>
-          ))}
-          {remainingTech > 0 ? <Badge>{`+${remainingTech} more`}</Badge> : null}
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={`Screenshot of ${project.name}`}
+            loading="lazy"
+            className="h-20 w-32 shrink-0 rounded border border-line object-cover object-top"
+          />
+        ) : null}
+
+        <div>
+          <div className="flex flex-wrap items-center gap-2">
+            <h3 className="font-mono text-base font-semibold text-ink">
+              <span className="text-muted">{"> "}</span>
+              {project.name}
+            </h3>
+            <Badge>{project.type}</Badge>
+          </div>
+          <p className="mt-1 text-sm text-body/80">{project.description}</p>
+          <div className="mt-2 flex flex-wrap gap-2">
+            {visibleTech.map((tech) => (
+              <Badge key={tech}>{tech}</Badge>
+            ))}
+            {remainingTech > 0 ? <Badge>{`+${remainingTech} more`}</Badge> : null}
+          </div>
         </div>
       </div>
 

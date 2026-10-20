@@ -2,6 +2,7 @@ import { ExternalLink } from "lucide-react";
 
 import type { Project } from "@/data/types";
 import Badge from "./Badge";
+import BrowserFrame from "./BrowserFrame";
 import TerminalWindow from "./TerminalWindow";
 
 interface FeaturedProjectCardProps {
@@ -12,6 +13,15 @@ export default function FeaturedProjectCard({ project }: FeaturedProjectCardProp
   return (
     <TerminalWindow title={`${project.id}.project.ts`} className="h-full">
       <div className="flex h-full flex-col">
+        {project.image ? (
+          <BrowserFrame
+            src={project.image}
+            alt={`Screenshot of ${project.name}`}
+            url={project.url}
+            className="mb-5"
+          />
+        ) : null}
+
         <div className="flex items-start justify-between gap-4">
           <h3 className="text-xl">{project.name}</h3>
           <Badge>{project.type}</Badge>
